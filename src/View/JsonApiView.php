@@ -212,7 +212,7 @@ class JsonApiView extends View
         }
 
         if (is_array($serialize)) {
-            $serialize = current($serialize);
+            $serialize = isset($serialize['data']) ? $serialize['data'] : current($serialize);
         }
 
         return isset($this->viewVars[$serialize]) ? $this->viewVars[$serialize] : null;
